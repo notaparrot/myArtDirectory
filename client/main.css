@@ -1,0 +1,47 @@
+body {
+
+  font-family: sans-serif;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+
+}
+
+li {
+  position: relative;
+  list-style: none;
+  padding: 15px;
+  border-bottom: #eee solid 1px;
+  border: #315481 solid 3px;
+  max-width: 200px;
+  
+}
+
+li .text {
+  margin-left: 10px;
+}
+
+.artSquare {
+  width: 200px;
+  height: 200px;
+  border: red solid 3px;
+}
+
+.container {
+  flex-direction: row;
+  display: flex;
+}
+
+.tag-list{
+  display: inline-block;
+}
+
+.art-space{
+  margin: 10px;
+}

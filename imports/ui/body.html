@@ -1,0 +1,52 @@
+
+
+<body>
+
+    
+    <header>
+        
+        <h1>myArtDirectoryyyyy</h1>
+        
+    </header>
+    
+    <div class="container">
+      <ul class="tag-list">
+
+        {{#each tags}}
+
+          {{> tag}}
+
+        {{/each}}
+
+      </ul>
+
+      <div class="art-space">
+        {{#each artSquares}}
+
+        {{> artSquare}}
+
+      {{/each}}
+
+    </div>
+
+    </div>
+
+  </body>
+
+  
+
+  <template name="tag">
+
+    <li>{{text}}</li>
+
+  </template>
+
+<template name="artSquare">
+    <div class="artSquare">
+        <a href={{link}}>{{title}}</a>
+    </div>
+
+    <!-- <p>{{title}}</p> -->
+
+
+</template>
