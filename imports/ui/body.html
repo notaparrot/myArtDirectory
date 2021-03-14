@@ -1,52 +1,55 @@
-
-
 <body>
 
-    
-    <header>
-        
-        <h1>myArtDirectoryyyyy</h1>
-        
-    </header>
-    
-    <div class="container">
-      <ul class="tag-list">
 
-        {{#each tags}}
+  <header>
 
-          {{> tag}}
+    <h1>myArtDirectoryyyyy</h1>
 
-        {{/each}}
+  </header>
 
-      </ul>
-
-      <div class="art-space">
-        {{#each artSquares}}
-
-        {{> artSquare}}
-
+  <div class="container">
+    <ul class="tag-list">
+      {{#each tags}}
+      {{> tag}}
       {{/each}}
+    </ul>
 
+    <div class="art-space">
+      {{#each artSquares}}
+      {{> artSquare}}
+      {{/each}}
     </div>
+    
+    <form class="tagToArray">
 
-    </div>
+      <input type="text" id="tag-input" name="tag-input"><br>
+      <input type="submit" value="Add Tag"><br>
+      
+    </form>
+    <form class="new-artSquare">
+      <label for="title">Title:</label><br>
+      <input type="text" id="title" name="title"><br>
+      <label for="link">Link:</label><br>
+      <input type="url" id="url" name="url"><br>
+      <input type="submit" value="Submit"><br>
+    </form>
 
-  </body>
 
-  
+  </div>
 
-  <template name="tag">
+</body>
 
-    <li>{{text}}</li>
 
-  </template>
+
+<template name="tag">
+
+  <li>{{text}}</li>
+
+</template>
 
 <template name="artSquare">
-    <div class="artSquare">
-        <a href={{link}}>{{title}}</a>
-    </div>
-
-    <!-- <p>{{title}}</p> -->
-
+  <div class="artSquare">
+    <a href={{url}}>{{title}}</a>
+  </div>
 
 </template>

@@ -45,3 +45,12 @@ li .text {
 .art-space{
   margin: 10px;
 }
+
+.tagToArray {
+  display: inline-block;
+  max-height: 40px;
+}
+
+#tag-input {
+  max-height: 100px;
+}
