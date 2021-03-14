@@ -1,41 +1,53 @@
 <body>
 
 
-  <header>
+  <!-- <header>
 
-    <h1>myArtDirectoryyyyy</h1>
+    <h1 style="margin-left:20px">my Art Directory</h1>
+    <h3 style="margin-left:20px"> -<i>work in progress</i>- </h3>
 
-  </header>
-
+  </header> -->
   <div class="container">
-    <ul class="tag-list">
-      {{#each tags}}
-      {{> tag}}
-      {{/each}}
-    </ul>
+    <div class="container-tags">
+      <ul class="tag-list">
+        {{#each tags}}
+        {{> tag}}
+        {{/each}}
+      </ul>
+    </div>
 
     <div class="art-space">
       {{#each artSquares}}
       {{> artSquare}}
       {{/each}}
     </div>
-    
-    <form class="tagToArray">
-      <input type="text" id="tagInput" name="tagInput"><br>
-      <input type="submit" value="Add Tag"><br>
-    </form>
-    <div id="display-tag"></div>
-    <form class="new-artSquare">
-      <label for="title">Title:</label><br>
-      <input type="text" id="title" name="title"><br>
-      <label for="link">Link:</label><br>
-      <input type="url" id="url" name="url"><br>
-      <input type="submit" value="Submit"><br>
-    </form>
 
+    <div class="container">
+
+      <div class="form-container">
+
+        <form class="tagToArray">
+          <label for="tagInput">Tags input:</label><br>
+          <input type="text" id="tagInput" name="tagInput"><br>
+          <input type="submit" value="Add Tag"><br>
+
+        </form>
+
+        <div id="display-tag"></div>
+
+        <form class="new-artSquare">
+          <label for="title">Title:</label><br>
+          <input type="text" id="title" name="title"><br>
+          <label for="link">Link:</label><br>
+          <input type="url" id="url" name="url"><br>
+          <input type="submit" value="Submit"><br>
+        </form>
+
+      </div>
+
+    </div>
 
   </div>
-
 </body>
 
 

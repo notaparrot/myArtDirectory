@@ -1,56 +1,76 @@
 body {
-
   font-family: sans-serif;
-  background-attachment: fixed;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0;
-  margin: 0;
   font-size: 14px;
-
+  background-color: #FEFCFB;
 }
 
 li {
+  color: #FEFCFB;
   position: relative;
   list-style: none;
-  padding: 15px;
-  border-bottom: #eee solid 1px;
-  border: #315481 solid 3px;
+  padding: 10px;
+  background-color: #1282A2;
   max-width: 200px;
-  
-}
-
-li .text {
-  margin-left: 10px;
+  border-radius: 8px;
+  margin: 20px;
+  text-align: center;
 }
 
 .artSquare {
   width: 200px;
   height: 200px;
-  border: red solid 3px;
+  border-radius: 8px;
+  margin: 20px;
+  background-color: #001F54;
+  padding: 15px;
+}
+
+.artSquare a {
+  text-decoration: none;
+  color: #FEFCFB;
+}
+
+.artSquare button {
+  background-color: #FEFCFB;
+  color: #001F54;
+  border-radius: 100px;
+  float: right;
+}
+
+.art-space {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+
+  /* flex-direction: column; */
+}
+
+.container-tags {
+  flex-direction: column;
+  display: grid;
+  /* display: block; */
 }
 
 .container {
-  flex-direction: row;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
 }
 
-.tag-list{
-  display: inline-block;
+.form-container {
+  display: inline;
+  margin: 20px;
+  height: fit-content;
+  background-color: #1282A2;
+  color: #FEFCFB;
+  border-radius: 8px;
 }
 
-.art-space{
-  margin: 10px;
+.form-container * {
+  margin: 3px;
 }
 
-.tagToArray {
-  display: inline-block;
-  max-height: 40px;
-}
-
-#tag-input {
-  max-height: 100px;
+.form-container input {
+  background-color: #FEFCFB;
+  border-radius: 8px;
+  color: #001F54;
 }
