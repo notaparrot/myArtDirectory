@@ -4,6 +4,7 @@ import {
 
 
 import './body.html';
+import './artSquare.js';
 
 import {
   Tags
@@ -44,7 +45,8 @@ Template.body.events({
       url,
     });
     // Clear form
-    target.text.value = '';
+    target.title.value = '';
+    target.url.value = '';
 
   },
   
@@ -52,11 +54,16 @@ Template.body.events({
 
     event.preventDefault();
 
-    console.log("yep");
+    tagList[tagList.length] = document.getElementById("tagInput").value;
 
-
-    tagList[tagList.length] = document.getElementById("tag-input").value;
+    const target = event.target;
+    var node = document.createElement("p");
+    var textNode = document.createTextNode(target.tagInput.value);
+    node.appendChild(textNode);
+    document.getElementById("display-tag").appendChild(node);
 
     console.log(tagList);
-  }
+    // Clear form
+    target.tagInput.value = '';
+  },
 })
