@@ -16,6 +16,18 @@ li {
   text-align: center;
 }
 
+.tag-in-square {
+  color: #FEFCFB;
+  position: relative;
+  list-style: none;
+  padding: 5px;
+  background-color: #001F54;
+  max-width: 200px;
+  border-radius: 8px;
+  margin: 5px;
+  text-align: center;
+}
+
 .artSquare {
   width: 200px;
   height: 200px;

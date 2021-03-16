@@ -43,13 +43,40 @@ Template.body.events({
     ArtSquares.insert({
       title,
       url,
+      tagList,
     });
+
+    // const text = tagList;
+    // Tags.insert({
+    //   text
+    // });
+
+    //  for (let i = 0 ; i <= tagList ; i++) {
+
+    //upsert should work if placed in a dedicated method
+    // Tags.upsert(
+    //   //selector
+    //   {
+    //     text: {$ne : "tagList.0"}
+    //   },
+    //   //modifier
+    //   {
+    //     $set: {
+    //       'text': "tagList.0"
+    //     }
+    //   }
+    //   );
+    // };
+
     // Clear form
     target.title.value = '';
     target.url.value = '';
+    //clean taglist
+    tagList = [];
+    document.getElementById("display-tag").innerHTML = "";
 
   },
-  
+
   'submit .tagToArray'(event) {
 
     event.preventDefault();
@@ -62,7 +89,6 @@ Template.body.events({
     node.appendChild(textNode);
     document.getElementById("display-tag").appendChild(node);
 
-    console.log(tagList);
     // Clear form
     target.tagInput.value = '';
   },

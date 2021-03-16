@@ -2,6 +2,13 @@
     <div class="artSquare">
       <a href={{url}}>{{title}}</a>
       <button class="delete">&times;</button>
+
+      <ul>
+        {{#each tagList}}
+        <li class="tag-in-square">{{this}}</li>
+        {{/each}}
+      </ul>
+      
     </div>
   
   </template>
