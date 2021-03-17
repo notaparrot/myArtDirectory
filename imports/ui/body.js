@@ -1,4 +1,9 @@
 import {
+  Meteor
+} from 'meteor/meteor';
+
+
+import {
   Template
 } from 'meteor/templating';
 
@@ -46,27 +51,7 @@ Template.body.events({
       tagList,
     });
 
-    // const text = tagList;
-    // Tags.insert({
-    //   text
-    // });
-
-    //  for (let i = 0 ; i <= tagList ; i++) {
-
-    //upsert should work if placed in a dedicated method
-    // Tags.upsert(
-    //   //selector
-    //   {
-    //     text: {$ne : "tagList.0"}
-    //   },
-    //   //modifier
-    //   {
-    //     $set: {
-    //       'text': "tagList.0"
-    //     }
-    //   }
-    //   );
-    // };
+    Meteor.call('pushTags', tagList);
 
     // Clear form
     target.title.value = '';
