@@ -1,23 +1,24 @@
+import './body.html';
+import './artSquare.js';
+
 import {
   Meteor
 } from 'meteor/meteor';
-
 
 import {
   Template
 } from 'meteor/templating';
 
-
-import './body.html';
-import './artSquare.js';
-
 import {
   Tags
 } from '../api/tags.js';
+
 import {
   ArtSquares
 } from '../api/artSquares.js';
 
+import { ReactiveVar } from 'meteor/reactive-var';
+import Images from '../api/images.js';
 
 
 Template.body.helpers({
@@ -31,26 +32,27 @@ Template.body.helpers({
 
 });
 
-// Array to store the temporarily the tags before "new-artSquare get published"
-// is it the best place to declare the value ?
+//store tags to be published in an artSquare
 let tagList = new Array(0);
 
 Template.body.events({
-  'submit .new-artSquare'(event) {
+  'submit .new-artSquare' : function (event) {
 
     // Prevent default browser form submit
     event.preventDefault();
+    
     // Get value from form element
     const target = event.target;
     const title = target.title.value;
     const url = target.url.value;
-    // Insert a task into the collection
+
+    // Insert content in ArtSquare db
     ArtSquares.insert({
       title,
       url,
       tagList,
     });
-
+    Template
     Meteor.call('pushTags', tagList);
 
     // Clear form
@@ -59,6 +61,34 @@ Template.body.events({
     //clean taglist
     tagList = [];
     document.getElementById("display-tag").innerHTML = "";
+
+    if (target.fileInput.files && target.fileInput.files[0]) {
+      // We upload only one file, in case
+      // there was multiple files selected
+      var file = target.fileInput.files[0];
+      console.log("file : ", file);
+      if (file) {
+        var uploadInstance = Images.insert({
+          file: file,
+          chunkSize: 'dynamic'
+        }, false);
+
+        // uploadInstance.on('start', function() {
+        //   upTemplate.currentUpload.set(this);
+        // });
+
+        // uploadInstance.on('end', function(){
+        //   upTemplate.currentUpload.set(false);
+        // });
+
+        uploadInstance.start();
+
+        //clean file input field
+        document.getElementById("fileInput").value = "";
+
+      }
+    }
+  
 
   },
 
@@ -77,4 +107,23 @@ Template.body.events({
     // Clear form
     target.tagInput.value = '';
   },
+
 })
+
+/////////////////////Images code ;////////////////
+
+Template.uploadedFiles.helpers({
+  uploadedFiles: function () {
+    return Images.find();
+  }
+});
+
+Template.uploadForm.onCreated(function () {
+  this.currentUpload = new ReactiveVar(false);
+});
+
+Template.uploadForm.helpers({
+  currentUpload: function () {
+    return Template.instance().currentUpload.get();
+  }
+});
