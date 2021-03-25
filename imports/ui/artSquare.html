@@ -1,16 +1,22 @@
 <template name="artSquare">
-    <div class="artSquare">
-      <a href={{url}}>{{title}}</a>
-      <button class="delete">&times;</button>
+  <div class="artSquare">
+    <a href={{url}}>{{title}}</a>
+    <button class="delete">&times;</button>
 
-      <ul>
-        {{#each tagList}}
-        <li class="tag-in-square">{{this}}</li>
-        {{/each}}
-      </ul>
+    <ul>
+      {{#each tagList}}
+      <li class="tag-in-square">{{this}}</li>
+      {{/each}}
+    </ul>
+    {{>file}}
+  </div>
 
-      <!-- how can i pick the image from the Images db ? -->
-      <img src="{{imageFile.link}}" alt="{{imageFile.name}}" />      
-    </div>
-  
-  </template>
+</template>
+
+<template name='file'>
+  {{#with imageFile.with}}
+  <img src="{{link}}" alt="{{image}}" class="img-art-square"/>
+  {{else}}
+  Loading Image...
+  {{/with}}
+</template>

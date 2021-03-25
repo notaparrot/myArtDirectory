@@ -45,28 +45,13 @@ Template.body.events({
     const target = event.target;
     const title = target.title.value;
     const url = target.url.value;
-
-    // Insert content in ArtSquare db
-    ArtSquares.insert({
-      title,
-      url,
-      tagList,
-    });
-    Template
-    Meteor.call('pushTags', tagList);
-
-    // Clear form
-    target.title.value = '';
-    target.url.value = '';
-    //clean taglist
-    tagList = [];
-    document.getElementById("display-tag").innerHTML = "";
-
+    
+    // Insert Image in database
     if (target.fileInput.files && target.fileInput.files[0]) {
       // We upload only one file, in case
       // there was multiple files selected
       var file = target.fileInput.files[0];
-      console.log("file : ", file);
+      // console.log("file : ", file.name);
       if (file) {
         var uploadInstance = Images.insert({
           file: file,
@@ -74,22 +59,41 @@ Template.body.events({
         }, false);
 
         // uploadInstance.on('start', function() {
-        //   upTemplate.currentUpload.set(this);
-        // });
-
-        // uploadInstance.on('end', function(){
-        //   upTemplate.currentUpload.set(false);
-        // });
-
-        uploadInstance.start();
-
-        //clean file input field
-        document.getElementById("fileInput").value = "";
-
+          //   upTemplate.currentUpload.set(this);
+          // });
+          
+          // uploadInstance.on('end', function(){
+          //   upTemplate.currentUpload.set(false);
+          // });
+          
+          uploadInstance.start();
+          
+          //clean file input field
+          document.getElementById("fileInput").value = "";
+          
+        }
       }
-    }
+      
+      // const for db.artSquares formatting
+      const image = file.name;
+      
+      // Insert content in ArtSquare db
+      ArtSquares.insert({
+        title,
+        url,
+        tagList,
+        image,
+      });
+      Template
+      Meteor.call('pushTags', tagList);
   
-
+      // Clear form
+      target.title.value = '';
+      target.url.value = '';
+      //clean taglist
+      tagList = [];
+      document.getElementById("display-tag").innerHTML = "";
+      
   },
 
   'submit .tagToArray'(event) {
@@ -112,11 +116,11 @@ Template.body.events({
 
 /////////////////////Images code ;////////////////
 
-Template.uploadedFiles.helpers({
-  uploadedFiles: function () {
-    return Images.find();
-  }
-});
+// Template.uploadedFiles.helpers({
+//   uploadedFiles: function () {
+//     return Images.find();
+//   }
+// });
 
 Template.uploadForm.onCreated(function () {
   this.currentUpload = new ReactiveVar(false);

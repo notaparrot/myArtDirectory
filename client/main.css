@@ -86,3 +86,7 @@ li {
   border-radius: 8px;
   color: #001F54;
 }
+
+.img-art-square {
+  max-width: 100px;
+}
