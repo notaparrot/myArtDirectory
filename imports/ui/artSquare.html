@@ -1,14 +1,17 @@
 <template name="artSquare">
   <div class="artSquare">
+    {{>file}}
     <a href={{url}}>{{title}}</a>
     <button class="delete">&times;</button>
 
-    <ul>
-      {{#each tagList}}
-      <li class="tag-in-square">{{this}}</li>
-      {{/each}}
-    </ul>
-    {{>file}}
+    <div id="tag-in-square-div">
+      <ul class="tag-in-square-list">
+        {{#each tagList}}
+        <li class="tag-in-square">{{this}}</li>
+        {{/each}}
+      </ul>
+    </div> 
+
   </div>
 
 </template>

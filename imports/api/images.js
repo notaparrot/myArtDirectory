@@ -1,8 +1,14 @@
-
-import { Meteor }          from 'meteor/meteor';
-import { FilesCollection } from 'meteor/ostrio:files';
+import {
+  Meteor
+} from 'meteor/meteor';
+import {
+  FilesCollection
+} from 'meteor/ostrio:files';
 
 const Images = new FilesCollection({
+  // temp files are deleted when the server is reset. need to set a specific folder to store images. following doesnt work because of writing permissions.
+  // storagePath: '/data',
+
   debug: true,
   collectionName: 'Images',
   allowClientCode: false, // Disallow remove files from Client
@@ -16,7 +22,7 @@ const Images = new FilesCollection({
 });
 
 if (Meteor.isServer) {
-  
+
   Images.denyClient();
   Meteor.publish('files.images.all', function () {
     return Images.find().cursor;

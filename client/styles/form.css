@@ -1,0 +1,18 @@
+.form-container {
+    display: inline;
+    margin: 20px;
+    height: fit-content;
+    background-color: #FEFCFB;
+    color: black;
+    border: black solid 2px;
+
+    box-shadow: 5px 5px;
+  }
+  
+  .form-container * {
+    margin: 3px;
+  }
+  
+  .form-container input {
+    background-color: #FEFCFB;
+  }

@@ -24,6 +24,22 @@ Template.artSquare.events({
 Template.file.helpers({
   imageFile() {
     //return match of the name of file in artSquares and Images collection
-    return Images.findOne({'name': this.image});
+    return Images.findOne({
+      'name': this.image
+    });
   }
 })
+
+
+//following doesn't work
+function ScrollDiv() {
+  if (document.getElementById('tag-in-square-div').scrollLeft < (document.getElementById('tag-in-square-div').scrollWidth - document.getElementById('tag-in-square-div').offsetWidth)) {
+    -1
+    document.getElementById('tag-in-square-div').scrollLeft = document.getElementById('tag-in-square-div').scrollLeft + 1
+  } else {
+    document.getElementById('tag-in-square-div').scrollLeft = 0;
+  }
+  // console.log(document.getElementById('tag-in-square-div'));
+
+}
+setInterval(ScrollDiv, 50);
