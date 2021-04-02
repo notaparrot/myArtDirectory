@@ -42,16 +42,16 @@
   padding: 10px;
   box-shadow: 5px 5px;
 
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  /* transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; */
 }
 
-.artSquare a:hover {
+/* .artSquare a:hover {
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3;
   transform: translate(4px, 4px);
   box-shadow: 3px 3px black;
   background-color: rgb(226, 130, 130);
 
-}
+} */
 
 .artSquare button {
   background-color: #FEFCFB;
@@ -68,7 +68,7 @@
   background-color: #FEFCFB;
   color: black;
   border: black solid 2px;
-  font-size: 12px;
+  font-size: 16px;
   margin: 10px;
   padding: 10px;
 

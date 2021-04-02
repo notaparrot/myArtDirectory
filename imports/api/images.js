@@ -7,7 +7,7 @@ import {
 
 const Images = new FilesCollection({
   // temp files are deleted when the server is reset. need to set a specific folder to store images. following doesnt work because of writing permissions.
-  // storagePath: '/data',
+  //storagePath: '/data',
 
   debug: true,
   collectionName: 'Images',

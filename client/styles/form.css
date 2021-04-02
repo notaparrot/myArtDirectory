@@ -16,3 +16,8 @@
   .form-container input {
     background-color: #FEFCFB;
   }
+
+  #fileInput {
+    background-color: #FEFCFB;
+    color: black;
+  }

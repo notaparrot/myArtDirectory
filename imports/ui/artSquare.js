@@ -31,7 +31,7 @@ Template.file.helpers({
 })
 
 
-//following doesn't work
+//console print getElementById is null but code still works ?!
 function ScrollDiv() {
   if (document.getElementById('tag-in-square-div').scrollLeft < (document.getElementById('tag-in-square-div').scrollWidth - document.getElementById('tag-in-square-div').offsetWidth)) {
     -1
@@ -39,7 +39,5 @@ function ScrollDiv() {
   } else {
     document.getElementById('tag-in-square-div').scrollLeft = 0;
   }
-  // console.log(document.getElementById('tag-in-square-div'));
-
 }
 setInterval(ScrollDiv, 50);

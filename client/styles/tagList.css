@@ -23,3 +23,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
 
 }
+
+.tag-list {
+    padding: 0px;
+}

@@ -1,87 +1,66 @@
 <body>
 
-
-  <!-- <header>
-
-    <h1 style="margin-left:20px">my Art Directory</h1>
-    <h3 style="margin-left:20px"> -<i>work in progress</i>- </h3>
-
-  </header> -->
   <div class="container">
     <div class="container-tags">
-      <ul class="tag-list">
-        {{#each tags}}
-        {{> tag}}
-        {{/each}}
-      </ul>
-    </div>
-
-    <div class="art-space">
-      {{#each artSquares}}
-      {{> artSquare}}
-      {{/each}}
-    </div>
-
-    <div class="container">
-
-      <div class="form-container">
-
-        <form class="tagToArray">
-          <label for="tagInput">Tags input:</label><br>
-          <input type="text" id="tagInput" name="tagInput"><br>
-          <input type="submit" value="Add Tag"><br>
-
-        </form>
-
-        <div id="display-tag"></div>
-
-        <form class="new-artSquare">
-          <label for="title">Title:</label><br>
-          <input type="text" id="title" name="title"><br>
-          <label for="link">Link:</label><br>
-          <input type="url" id="url" name="url"><br>
-          {{> uploadForm}}
-          <input type="submit" value="Submit"><br>
-
-        </form>
-
+        <ul class="tag-list">
+          {{#each tags}}
+          {{> tag}}
+          {{/each}}
+        </ul>
       </div>
-
+      
+      <div class="art-space">
+        {{#each artSquares}}
+        {{> artSquare}}
+        {{/each}}
+      </div>
+      
+      <div class="container">
+        
+        <div class="form-container">
+          
+          <form class="tagToArray">
+            <label for="tagInput">Tags input:</label><br>
+            <input type="text" id="tagInput" name="tagInput"><br>
+            <input type="submit" value="Add Tag"><br>
+            
+          </form>
+          
+          <div id="display-tag"></div>
+          
+          <form class="new-artSquare">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+            <label for="link">Link:</label><br>
+            <input type="url" id="url" name="url"><br>
+            {{> uploadForm}}
+            <input type="submit" value="Submit"><br>
+            
+          </form>
+          
+        </div>
+        
+      </div>
+      
     </div>
-
-  </div>
-</body>
-
-
-
-<template name="tag">
-
-  <li class="single-tag">{{text}}</li>
+    
+  </body>
+  
+  
+  
+  <template name="tag">
+    
+    <li class="single-tag">{{text}}</li>
 
 </template>
 
 
 <template name="uploadForm">
   {{#with currentUpload}}
-    Uploading <b>{{file.name}}</b>: 
-    <span id="progress">{{progress.get}}%</span>
+  Uploading <b>{{file.name}}</b>:
+  <span id="progress">{{progress.get}}%</span>
   {{else}}
-    <input id="fileInput" type="file" name="fileInput"/>
-    <p><small>Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB</small></p>
+  <input id="fileInput" type="file" name="fileInput" />
+  <p><small>Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB</small></p>
   {{/with}}
 </template>
-
-
-<!-- <template name="uploadedFiles">
-  {{#if uploadedFiles.count}}
-    <ul>
-      {{#each file in uploadedFiles.each}}
-        <li>
-          <a href="{{file.link}}?download=true" download="{{file.name}}">{{file.name}}</a>
-        </li>
-      {{/each}}
-    </ul>
-  {{else}}
-    <div>No files uploaded, yet</div>
-  {{/if}}
-</template> -->

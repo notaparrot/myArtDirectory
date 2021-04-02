@@ -5,9 +5,7 @@
 body {
   font-family: "karrik", sans-serif;
   font-size: 20px;
-  background-color: #FEFCFB;
 }
-
 .art-space {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30px, 500px));
@@ -17,9 +15,16 @@ body {
   flex-direction: column;
   display: grid;
   /* display: block; */
+  
+  margin: 10px;
+  background-color: #FEFCFB;
+  color: black;
+  border: black solid 2px;
+  box-shadow: 5px 5px;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
+  margin: 10px;
 }
